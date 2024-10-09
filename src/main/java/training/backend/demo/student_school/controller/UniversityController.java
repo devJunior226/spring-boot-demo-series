@@ -1,5 +1,6 @@
-package training.backend.demo.controller;
+package training.backend.demo.student_school.controller;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,19 +12,20 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-import training.backend.demo.dto.SchoolDto;
-import training.backend.demo.dto.SchoolForAdminDto;
-import training.backend.demo.dto.StudentDto;
-import training.backend.demo.dto.StudentForAdminDto;
-import training.backend.demo.dto.StudentPublicDataDto;
-import training.backend.demo.service.UniversityService;
-import training.backend.demo.utils.ApiResponse;
+import training.backend.demo.student_school.dto.SchoolDto;
+import training.backend.demo.student_school.dto.SchoolForAdminDto;
+import training.backend.demo.student_school.dto.StudentDto;
+import training.backend.demo.student_school.dto.StudentForAdminDto;
+import training.backend.demo.student_school.dto.StudentPublicDataDto;
+import training.backend.demo.student_school.exception.HandleMethodArgumentNotValidException;
+import training.backend.demo.student_school.service.UniversityService;
+import training.backend.demo.student_school.utils.ApiResponse;
 
 import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
-public class UniversityController {
+public class UniversityController extends HandleMethodArgumentNotValidException {
     private final UniversityService universityService;
 
     /**
@@ -33,7 +35,7 @@ public class UniversityController {
      * @return the new school we just saved.
      */
     @PostMapping("/schools")
-    public ResponseEntity<SchoolForAdminDto> postSchool(@RequestBody SchoolDto schoolDto) {
+    public ResponseEntity<SchoolForAdminDto> postSchool(@RequestBody final SchoolDto schoolDto) {
         SchoolForAdminDto newSchool = universityService.saveSchool(schoolDto);
         return new ResponseEntity<>(newSchool, HttpStatus.CREATED);
     }
@@ -49,6 +51,7 @@ public class UniversityController {
         ApiResponse<List<SchoolForAdminDto>> response = new ApiResponse<>("List of schools", schools);
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
+
 
     /**
      * Return alls the students available.
@@ -70,7 +73,7 @@ public class UniversityController {
      */
     @PostMapping("/students")
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<ApiResponse<StudentForAdminDto>> postSudent(@RequestBody final StudentDto studentDto) {
+    public ResponseEntity<ApiResponse<StudentForAdminDto>> postSudent(@RequestBody @Valid final StudentDto studentDto) {
         StudentForAdminDto studentPosted = this.universityService.saveStudent(studentDto);
         ApiResponse<StudentForAdminDto> response = new ApiResponse<>("You saved a student", studentPosted);
 

@@ -1,4 +1,4 @@
-package training.backend.demo.dto;
+package training.backend.demo.student_school.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

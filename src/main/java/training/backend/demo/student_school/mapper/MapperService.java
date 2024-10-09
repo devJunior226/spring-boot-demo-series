@@ -1,13 +1,13 @@
-package training.backend.demo.mapper;
+package training.backend.demo.student_school.mapper;
 
 import org.springframework.stereotype.Service;
-import training.backend.demo.dto.StudentPublicDataDto;
-import training.backend.demo.dto.SchoolDto;
-import training.backend.demo.dto.SchoolForAdminDto;
-import training.backend.demo.dto.StudentDto;
-import training.backend.demo.dto.StudentForAdminDto;
-import training.backend.demo.entity.School;
-import training.backend.demo.entity.Student;
+import training.backend.demo.student_school.dto.StudentPublicDataDto;
+import training.backend.demo.student_school.dto.SchoolDto;
+import training.backend.demo.student_school.dto.SchoolForAdminDto;
+import training.backend.demo.student_school.dto.StudentDto;
+import training.backend.demo.student_school.dto.StudentForAdminDto;
+import training.backend.demo.student_school.entity.School;
+import training.backend.demo.student_school.entity.Student;
 
 import java.util.stream.Collectors;
 
@@ -69,6 +69,7 @@ public class MapperService {
                     .collect(Collectors.toList()));
         }
     }
+
 
     /**
      * From StudentDto to Student.

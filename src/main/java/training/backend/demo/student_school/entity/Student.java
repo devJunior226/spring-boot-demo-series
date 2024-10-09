@@ -1,4 +1,4 @@
-package training.backend.demo.entity;
+package training.backend.demo.student_school.entity;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -22,16 +22,21 @@ import lombok.Setter;
 public class Student {
     @Id
     private Integer id;
+
     @Column(name = "first_name", length = 100)
     private String firstName;
+
     @Column(name = "last_name")
     private String lastName;
+
+    @Column(name = "email")
     private String email;
+
+    @Column(name = "age")
     private int age;
 
     /** Unidirectionnal relationship betwen student and studentProfile */
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "student")
-    //@JoinColumn(name = "student_profile_id")
     private StudentProfile studentProfile;
 
     /** Unidirectionnal relationship betwen student and school. */

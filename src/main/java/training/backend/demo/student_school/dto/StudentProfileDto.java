@@ -1,7 +1,9 @@
-package training.backend.demo.dto;
+package training.backend.demo.student_school.dto;
+
+import training.backend.demo.student_school.entity.StudentProfile;
 
 /**
- * DTO for {@link training.backend.demo.entity.StudentProfile}
+ * DTO for {@link StudentProfile}
  */
 public record StudentProfileDto(
         Integer id,

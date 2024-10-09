@@ -3,12 +3,15 @@
 
 ## 1. Use of DTO
 - Only return student firstname, lastname, email, age and school name in student POST request.
+OK
 
 
 - Only return school name, address and headmaster name in school POST request.
+OK
 
 
 - Return only the list of students and the list of schools available.
+OK
 
 
 - We want for each school, return the list of its students.

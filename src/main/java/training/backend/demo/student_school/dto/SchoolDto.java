@@ -1,12 +1,11 @@
-package training.backend.demo.dto;
+package training.backend.demo.student_school.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import training.backend.demo.entity.School;
+import training.backend.demo.student_school.entity.School;
 
-import java.lang.reflect.Array;
 import java.util.Collection;
 
 /**

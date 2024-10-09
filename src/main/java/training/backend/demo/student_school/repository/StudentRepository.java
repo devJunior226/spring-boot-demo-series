@@ -1,7 +1,7 @@
-package training.backend.demo.repository;
+package training.backend.demo.student_school.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import training.backend.demo.entity.Student;
+import training.backend.demo.student_school.entity.Student;
 
 public interface StudentRepository extends JpaRepository<Student, Integer> {
     /**

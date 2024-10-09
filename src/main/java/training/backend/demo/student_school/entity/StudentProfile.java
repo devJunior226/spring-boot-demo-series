@@ -1,4 +1,4 @@
-package training.backend.demo.entity;
+package training.backend.demo.student_school.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

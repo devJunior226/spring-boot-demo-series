@@ -1,21 +1,20 @@
-package training.backend.demo.service;
+package training.backend.demo.student_school.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
-import training.backend.demo.dto.StudentPublicDataDto;
-import training.backend.demo.dto.SchoolDto;
-import training.backend.demo.dto.SchoolForAdminDto;
-import training.backend.demo.dto.StudentDto;
-import training.backend.demo.dto.StudentForAdminDto;
-import training.backend.demo.entity.School;
-import training.backend.demo.entity.Student;
-import training.backend.demo.mapper.MapperService;
-import training.backend.demo.repository.SchoolRepository;
-import training.backend.demo.repository.StudentRepository;
+import training.backend.demo.student_school.dto.StudentPublicDataDto;
+import training.backend.demo.student_school.dto.SchoolDto;
+import training.backend.demo.student_school.dto.SchoolForAdminDto;
+import training.backend.demo.student_school.dto.StudentDto;
+import training.backend.demo.student_school.dto.StudentForAdminDto;
+import training.backend.demo.student_school.entity.School;
+import training.backend.demo.student_school.entity.Student;
+import training.backend.demo.student_school.mapper.MapperService;
+import training.backend.demo.student_school.repository.SchoolRepository;
+import training.backend.demo.student_school.repository.StudentRepository;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
@@ -40,12 +39,17 @@ public class UniversityService {
         return this.mapper.toSchoolForAdminDto(schoolSaved);
     }
 
+    /**
+     * Return the list of schools.
+     * @return a list of schools.
+     */
     public List<SchoolForAdminDto> findSchools() {
         return this.schoolRepository.findAll()
                 .stream()
                 .map(school -> this.mapper.toSchoolForAdminDto(school))
                 .collect(Collectors.toList());
     }
+
 
     /**
      * Save a student.

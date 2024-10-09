@@ -1,4 +1,4 @@
-package training.backend.demo.revision;
+package training.backend.demo.student_school.revision;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
